@@ -1,4 +1,4 @@
-export default {
+export default () => ({
   basket: [],
   summary: { name: 'ffutfu' },
-};
+});

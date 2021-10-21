@@ -1,6 +1,5 @@
 import i18n from './src/locales';
 import routes from './src/router';
-import axios from './src/utils/api';
 
 export default {
   mode: 'spa',
@@ -25,6 +24,7 @@ export default {
       },
     ],
   },
+  pages: 'views',
   router: {
     extendRoutes(nuxtRoutes, resolve) {
       nuxtRoutes.splice(
@@ -41,8 +41,22 @@ export default {
   srcDir: 'src/',
   components: true,
   buildModules: ['@nuxtjs/dotenv', '@nuxt/typescript-build'],
-  modules: ['@nuxtjs/i18n', '@nuxtjs/axios','portal-vue/nuxt'],
+  modules: ['@nuxtjs/i18n', '@nuxtjs/axios', 'portal-vue/nuxt'],
   i18n,
-  axios,
-  build: {},
+  axios: {
+    baseURL: process.env.NUXT_APP_BASE_URL,
+    timeout: process.env.NUXT_APP_AXIOS_TIMEOUT_MS,
+    responseType: 'json',
+    headers: {
+      common: {
+        Accept: 'application/json',
+        'Accept-Language': process.env.NUXT_APP_DEFAULT_LOCALE,
+      },
+    },
+  },
+  build: {
+    extend(config) {
+      config.performance.hints = false;
+    },
+  },
 };
