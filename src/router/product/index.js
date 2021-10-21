@@ -1,7 +1,7 @@
 export default [
   {
     name: 'product',
-    path: '/product',
+    path: '/',
     component: '~/views/product',
   },
 ];
