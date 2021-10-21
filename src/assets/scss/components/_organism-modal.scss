@@ -1,0 +1,47 @@
+.organism-modal {
+  &__overlay {
+    inset: 0;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+  }
+
+  &__main {
+    flex: auto;
+  }
+
+  &__content {
+    border-radius: 4px;
+    max-height: 100vh;
+    overflow: overlay;
+    background-color: var(--seas-hell);
+    animation: coming 0.25s;
+    @media (min-width: 767px) {
+      max-height: 80vh;
+    }
+  }
+
+  &__fullscreen-on-mobile {
+    @media (max-width: 576px) {
+      margin: 0;
+      height: 100vh !important;
+      width: 100% !important;
+    }
+  }
+
+  &__sm {
+    @include width-responsiver-by-full-width($on-mobile: 40px, $on-desktop: 350px);
+  }
+
+  &__md {
+    @include width-responsiver-by-full-width($on-mobile: 30px, $on-desktop: 450px);
+  }
+
+  &__lg {
+    @include width-responsiver-by-full-width($on-mobile: 20px, $on-desktop: 550px);
+  }
+
+  &__xl {
+    @include width-responsiver-by-full-width($on-mobile: 10px, $on-desktop: 650px);
+  }
+}

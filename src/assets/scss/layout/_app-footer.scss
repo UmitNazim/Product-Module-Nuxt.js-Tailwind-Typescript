@@ -1,0 +1,10 @@
+.app-footer {
+  height: auto;
+
+  &__content {
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    color: var(--navy-blue);
+  }
+}

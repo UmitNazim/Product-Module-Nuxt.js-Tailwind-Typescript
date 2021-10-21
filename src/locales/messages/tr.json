@@ -1,0 +1,44 @@
+{
+  "basket": {
+    "add": "Sepete Ekle",
+    "cargoAmount": "Kargo Ücreti",
+    "discountAmount": "İndirim Miktarı",
+    "generalTotalAmount": "Genel Toplam Ücret",
+    "name": "Sepet",
+    "summary": "Alışveriş Özeti",
+    "totalAmount": "Toplam Ödenecek Miktar"
+  },
+  "general": {
+    "added": "Eklendi",
+    "areYouSure": "Emin misiniz?",
+    "brandPolicy": "Gizlilik Politikası",
+    "cancel": "İptal",
+    "color": "Renk",
+    "continue": "Devam Et",
+    "delete": "Sil",
+    "quantity": "Adet",
+    "size": "Beden"
+  },
+  "product": {
+    "delete": "Ürün Sil",
+    "description": {
+      "noProductInBasket": "Sepette ürün bulunmamaktadır.",
+      "willBeDeleted": "<strong>{product}</strong> ürünü silinecektir.@:general.areYouSure"
+    },
+    "list": "Ürünlerim",
+    "name": "Ürün"
+  },
+  "sorting": {
+    "name": "Sıralama",
+    "type": {
+      "highPriceToLow": "Pahalıdan Ucuza",
+      "lowPriceToHigh": "Ucuzdan Pahalıya",
+      "newToOld": "Yeniden Eskiye",
+      "oldToNew": "Eskiden Yeniye"
+    }
+  },
+  "category": {
+    "name": "Kategori",
+    "list": "Kategoriler"
+  }
+}

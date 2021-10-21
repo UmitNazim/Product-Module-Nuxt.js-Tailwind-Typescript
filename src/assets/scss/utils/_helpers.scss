@@ -1,0 +1,66 @@
+@each $color, $value in $main-colors {
+  .text-#{$color} {
+    color: $value;
+  }
+
+  .bg-#{$color} {
+    background-color: $value;
+  }
+
+  .hover-#{$color} {
+    &:hover {
+      color: $value;
+    }
+  }
+}
+
+.hover-opacity-3 {
+  &:hover {
+    opacity: 0.3;
+  }
+}
+
+.hover-opacity-5 {
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.hover-opacity-7 {
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.hover-opacity-9 {
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.font-size-12 {
+  @include font-responsiver($on-mobile: 10px, $on-desktop: 12px);
+}
+.font-size-14 {
+  @include font-responsiver($on-mobile: 12px, $on-desktop: 14px);
+}
+
+.font-size-16 {
+  @include font-responsiver($on-mobile: 14px, $on-desktop: 16px);
+}
+
+.place-items-start {
+  @include flex-generator($align: flex-start);
+}
+
+.place-items-center {
+  @include flex-generator($align: center);
+}
+
+.place-items-between {
+  @include flex-generator($align: space-between);
+}
+
+.place-items-end {
+  @include flex-generator($align: flex-end);
+}

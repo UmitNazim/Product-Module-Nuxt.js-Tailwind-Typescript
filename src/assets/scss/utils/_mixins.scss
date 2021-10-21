@@ -1,0 +1,19 @@
+@mixin font-responsiver($on-mobile, $on-desktop) {
+  font-size: $on-mobile;
+  @media (min-width: 767px) {
+    font-size: $on-desktop;
+  }
+}
+
+@mixin flex-generator($align) {
+  display: flex;
+  justify-content: $align;
+  align-items: center;
+}
+
+@mixin width-responsiver-by-full-width($on-mobile, $on-desktop) {
+  width: calc(100% - #{$on-mobile});
+  @media (min-width: 767px) {
+    width: $on-desktop;
+  }
+}
