@@ -2,7 +2,7 @@ import i18n from './src/locales';
 import routes from './src/router';
 
 export default {
-  mode: 'spa',
+  mode: 'ssr',
   devtools: true,
   head: {
     title: 'Knawat Product Module',
