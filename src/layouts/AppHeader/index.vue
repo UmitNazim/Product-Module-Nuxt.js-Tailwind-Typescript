@@ -10,7 +10,6 @@
     <atom-button
       @mouse-over="isOpen = true"
       @mouse-leave="isOpen = false"
-      @on-click="$router.push({ path: '/basket' })"
       size="md"
       flat
       class="hover-opacity-7 flat h-full relative w-32"
@@ -25,7 +24,7 @@
       shadow
       flat
       color="snow-drift"
-      class="absolute md:w-2/5 right-px	top-20 sm:w-full p-4 fade-in z-10"
+      class="absolute md:w-2/5 right-px	top-20  w-full p-4 fade-in z-10"
     >
       <template v-if="basket.length">
         <template v-for="({ price, title }, index) in basket">

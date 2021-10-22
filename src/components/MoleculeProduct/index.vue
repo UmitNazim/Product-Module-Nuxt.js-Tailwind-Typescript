@@ -27,6 +27,7 @@
 
 <script>
 export default {
+  name: 'MoleculeProduct',
   props: {
     product: {
       type: Object,

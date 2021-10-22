@@ -2,7 +2,7 @@
   <organism-modal
     @on-close="$emit('on-close')"
     close-on-out-side-click
-    size="xl"
+    size="lg"
   >
     <div class="flex flex-wrap">
       <atom-image

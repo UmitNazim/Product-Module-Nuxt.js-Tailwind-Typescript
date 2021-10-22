@@ -21,7 +21,9 @@ export default {
   },
   methods: {
     async sortProductBy({ sort }) {
+      this.$emit('on-sort', true);
       await this.$store.dispatch('product/fetchProducts', { sort });
+      this.$emit('on-sort', false);
     },
   },
   computed: {

@@ -1,20 +1,30 @@
 <template>
   <organism-card class="md:p-4" color="white" no-padding shadow>
-    <div class="grid md:grid-row-1 md:grid-cols-4 gap-5">
-      <molecule-product
-        v-for="(product, index) in products"
-        :key="`product-${index}`"
-        :product="product"
-        @on-product-add="addProduductToBasket(product)"
-        @on-product-detail="onProduct(product)"
-        class="md:col-span-1 sm:col-span-4"
-      />
+    <div class="flex flex-wrap">
+      <template v-if="isProductFetch || onSort">
+        <molecule-content-loader
+          v-for="n in 20"
+          :key="`product-placeholder-${n}`"
+          class="w-full md:w-1/4 p-2 sm:mb-2"
+        />
+      </template>
+      <template v-else>
+        <molecule-product
+          v-for="(product, index) in products"
+          :key="`product-${index}`"
+          :product="product"
+          @on-product-add="addProduductToBasket(product)"
+          @on-product-detail="onProduct(product)"
+          class="w-full md:w-1/4 sm:mb-2"
+        />
+      </template>
     </div>
+
     <product-detail-modal
       v-if="isOpen"
       @on-close="isOpen = false"
       :product="selectedProduct"
-    ></product-detail-modal>
+    />
   </organism-card>
 </template>
 
@@ -22,11 +32,18 @@
 import ProductDetailModal from './ProductDetailModal';
 export default {
   components: { ProductDetailModal },
+  props: {
+    onSort: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
-      isOpen: false,
-      selectedProduct: {},
       onBasket: [],
+      isOpen: false,
+      isProductFetch: false,
+      selectedProduct: {},
     };
   },
 
@@ -48,7 +65,9 @@ export default {
     },
   },
   async created() {
+    this.isProductFetch = true;
     await this.$store.dispatch('product/fetchProducts');
+    this.isProductFetch = false;
   },
 };
 </script>
