@@ -9,9 +9,9 @@
         />
       </template>
       <template v-else>
-        <molecule-product
-          v-for="(product, index) in products"
-          :key="`product-${index}`"
+        <product-card
+          v-for="product in products"
+          :key="product.id"
           :product="product"
           @on-product-add="addProduductToBasket(product)"
           @on-product-detail="onProduct(product)"
@@ -30,8 +30,10 @@
 
 <script>
 import ProductDetailModal from './ProductDetailModal';
+import ProductCard from './ProductCard';
+
 export default {
-  components: { ProductDetailModal },
+  components: { ProductDetailModal, ProductCard },
   props: {
     onSort: {
       type: Boolean,
@@ -48,8 +50,8 @@ export default {
   },
 
   methods: {
-    addProduductToBasket({ title, price }) {
-      this.onBasket.push({ title, price });
+    addProduductToBasket(product) {
+      this.onBasket.push(product);
       this.$store.dispatch('basket/addProductToBasket', {
         items: [...this.onBasket],
       });
@@ -66,8 +68,9 @@ export default {
   },
   async created() {
     this.isProductFetch = true;
-    await this.$store.dispatch('product/fetchProducts');
-    this.isProductFetch = false;
+    await this.$store
+      .dispatch('product/fetchProducts')
+      .then(() => (this.isProductFetch = false));
   },
 };
 </script>
