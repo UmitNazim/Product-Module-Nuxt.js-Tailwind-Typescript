@@ -4,10 +4,7 @@
       class="organism-modal__overlay place-items-center"
       @click="closeOnOutSideClick && $emit('on-close')"
     >
-      <div
-        v-bind="containerOptions"
-        class="organism-modal__content p-3 d-flex flex-column"
-      >
+      <div v-bind="containerOptions" class="organism-modal__content p-3 d-flex flex-column">
         <header>
           <div class="place-items-between">
             <h5 class="font-size-14 m-0">{{ title }}</h5>
@@ -16,11 +13,9 @@
             /></atom-button>
           </div>
         </header>
-
         <main class="organism-modal__main my-3">
           <slot></slot>
         </main>
-
         <footer>
           <slot name="footer" />
         </footer>

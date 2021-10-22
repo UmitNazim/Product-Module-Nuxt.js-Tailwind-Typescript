@@ -28,26 +28,18 @@
     >
       <template v-if="basket.length">
         <template v-for="({ price, title }, index) in basket">
-          <div
-            class="place-items-between font-size-14 text-mid-grey"
-            :key="`basket-item-${index}`"
-          >
+          <div class="place-items-between font-size-14 text-mid-grey" :key="`basket-item-${index}`">
             <span>{{ title }}</span>
             <span> {{ price }} &#8378;</span>
           </div>
           <atom-divider class="my-2" :key="`basket-divider-${index}`" />
         </template>
-
         <span class="float-right"
           >Total Price :
           <strong>{{ totalPrice.toFixed(2) }} &#8378;</strong>
         </span>
       </template>
-      <atom-no-data-card
-        description="No Data Yet"
-        color="white"
-        v-else
-      ></atom-no-data-card>
+      <atom-no-data-card description="No Data Yet" color="white" v-else></atom-no-data-card>
     </organism-card>
   </header>
 </template>
