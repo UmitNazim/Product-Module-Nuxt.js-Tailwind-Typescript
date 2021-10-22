@@ -6,6 +6,7 @@
       type="radio"
       class="atom-radio__input"
       @change="$emit('on-change')"
+      v-bind="$attrs"
     />
     <label class="atom-radio__label" :for="label" v-html="label" />
   </div>

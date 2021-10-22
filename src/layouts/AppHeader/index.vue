@@ -8,13 +8,15 @@
       height="100"
     ></atom-image>
     <atom-button
-      @on-click="isOpen = !isOpen"
+      @mouse-over="isOpen = true"
+      @mouse-leave="isOpen = false"
+      @on-click="$router.push({ path: '/basket' })"
       size="md"
       flat
-      class="hover-opacity-7 flat h-full relative"
+      class="hover-opacity-7 flat h-full relative w-32"
     >
       <atom-image class="mr-2" :src="require('~/assets/icons/basket.svg')" />
-      OO.O TL
+      {{ basket.length }}
     </atom-button>
 
     <organism-card
@@ -25,16 +27,28 @@
       color="snow-drift"
       class="absolute md:w-2/5 right-px	top-20 sm:w-full p-4 fade-in z-10"
     >
-      <div class="place-items-between">
-        <div class="font-size-14 text-mid-grey">
-          <span class="block"
-            >Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</span
+      <template v-if="basket.length">
+        <template v-for="({ price, title }, index) in basket">
+          <div
+            class="place-items-between font-size-14 text-mid-grey"
+            :key="`basket-item-${index}`"
           >
-          <span>78.00 TL</span>
-        </div>
-        <molecule-counter></molecule-counter>
-      </div>
-      <atom-divider class="my-2" />
+            <span>{{ title }}</span>
+            <span> {{ price }} &#8378;</span>
+          </div>
+          <atom-divider class="my-2" :key="`basket-divider-${index}`" />
+        </template>
+
+        <span class="float-right"
+          >Total Price :
+          <strong>{{ totalPrice.toFixed(2) }} &#8378;</strong>
+        </span>
+      </template>
+      <atom-no-data-card
+        description="No Data Yet"
+        color="white"
+        v-else
+      ></atom-no-data-card>
     </organism-card>
   </header>
 </template>
@@ -46,6 +60,14 @@ export default {
     return {
       isOpen: false,
     };
+  },
+  computed: {
+    totalPrice() {
+      return this.basket.reduce((accum, { price }) => accum + price, 0);
+    },
+    basket() {
+      return this.$store.getters['basket/getBasket'];
+    },
   },
 };
 </script>
