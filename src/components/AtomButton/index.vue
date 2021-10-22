@@ -2,7 +2,9 @@
   <button
     v-bind="options"
     class="atom-button p-2 place-items-center"
-    @click.self="$emit('on-click')"
+    @click="$emit('on-click')"
+    @mouseover="$emit('mouse-over')"
+    @mouseleave="$emit('mouse-leave')"
   >
     <slot></slot>
   </button>

@@ -1,1 +1,5 @@
-export default () => ({ products: [] });
+export default () => ({
+  products: [],
+  categories: [],
+  selectedCategories: [],
+});

@@ -1,11 +1,11 @@
 <template>
   <organism-card title="category.list" color="bg-white" shadow>
     <atom-checkbox
-      v-for="(field, index) in fields"
+      v-for="(category, index) in categories"
       :key="`sorting-item-${index}`"
-      :label="field"
-      @on-change="selectedSort = field"
-      class="mb-2"
+      :label="category"
+      @input="status => getProductBy(status, category)"
+      class="mb-2 capitalize"
     />
   </organism-card>
 </template>
@@ -14,13 +14,27 @@
 export default {
   data() {
     return {
-      selectedSort: {},
+      selected: [],
     };
   },
-  computed: {
-    fields() {
-      return ['electronics', 'jewelery', "men's clothing", "women's clothing"];
+  methods: {
+    getProductBy(status = false, category = null) {
+      status
+        ? this.selected.push(category)
+        : (this.selected = this.selected.filter(item => item !== category));
+
+      this.$store.dispatch('product/updateSelectedCategories', {
+        items: [...this.selected],
+      });
     },
+  },
+  computed: {
+    categories() {
+      return this.$store.getters['product/getCategories'];
+    },
+  },
+  async created() {
+    await this.$store.dispatch('product/fetchCategories');
   },
 };
 </script>

@@ -2,20 +2,14 @@
   <organism-card class="md:p-4" color="white" no-padding shadow>
     <div class="grid md:grid-row-1 md:grid-cols-4 gap-5">
       <molecule-product
-        v-for="({ price, title, image, ...rest }, index) in products"
+        v-for="(product, index) in products"
         :key="`product-${index}`"
-        :price="price"
-        :name="title"
-        :image="image"
+        :product="product"
+        @on-product-add="addProduductToBasket(product)"
+        @on-product-detail="onProduct(product)"
         class="md:col-span-1 sm:col-span-4"
-        @on-product-detail="onProduct({ price, title, image, ...rest })"
       />
     </div>
-    <organism-pagination
-      class="mt-7"
-      :per-page="16"
-      :total-count="128"
-    ></organism-pagination>
     <product-detail-modal
       v-if="isOpen"
       @on-close="isOpen = false"
@@ -32,10 +26,17 @@ export default {
     return {
       isOpen: false,
       selectedProduct: {},
+      onBasket: [],
     };
   },
 
   methods: {
+    addProduductToBasket({ title, price }) {
+      this.onBasket.push({ title, price });
+      this.$store.dispatch('basket/addProductToBasket', {
+        items: [...this.onBasket],
+      });
+    },
     onProduct(selected = {}) {
       this.isOpen = true;
       this.selectedProduct = selected;

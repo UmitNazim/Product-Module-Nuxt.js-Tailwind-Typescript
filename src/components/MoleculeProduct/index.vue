@@ -2,13 +2,17 @@
   <div class="molecule-product">
     <div @click="$emit('on-product-detail')">
       <div class="molecule-product__image place-items-center">
-        <atom-image class="hover-opacity-7" style="height:150px" :src="image" />
+        <atom-image
+          class="hover-opacity-7"
+          style="height:150px"
+          :src="product.image"
+        />
       </div>
-      <span v-if="price" class="molecule-product__price"
-        >&#8378;{{ price }}</span
+      <span v-if="product.price" class="molecule-product__price"
+        >{{ product.price }} &#8378;</span
       >
-      <span v-if="name" class="molecule-product__name truncate">{{
-        name
+      <span v-if="product.title" class="molecule-product__name truncate">{{
+        product.title
       }}</span>
     </div>
 
@@ -24,17 +28,9 @@
 <script>
 export default {
   props: {
-    name: {
-      type: String,
-      default: null,
-    },
-    price: {
-      type: Number,
-      default: 0,
-    },
-    image: {
-      type: String,
-      default: '~/assets/images/general/product-placeholder.jpg',
+    product: {
+      type: Object,
+      default: () => {},
     },
   },
   data() {
