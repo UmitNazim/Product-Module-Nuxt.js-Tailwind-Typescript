@@ -5,7 +5,6 @@ export default {
   setCategories(state, { items = [] }) {
     state.categories = items;
   },
-
   setSelectedCategories(state, { items = [] }) {
     state.selectedCategories = items;
   },

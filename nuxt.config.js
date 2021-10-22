@@ -36,6 +36,11 @@ export default {
       );
     },
   },
+  storybook: {
+    stories: ['~/stories/**/*.stories.js'],
+    addons: ['@storybook/addon-controls'],
+    port: 4000,
+  },
   css: ['~assets/scss/main.scss'],
   plugins: [],
   srcDir: 'src/',

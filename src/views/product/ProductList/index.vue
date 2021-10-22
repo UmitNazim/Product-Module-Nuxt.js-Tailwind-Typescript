@@ -19,12 +19,7 @@
         />
       </template>
     </div>
-
-    <product-detail-modal
-      v-if="isOpen"
-      @on-close="isOpen = false"
-      :product="selectedProduct"
-    />
+    <product-detail-modal v-if="isOpen" @on-close="isOpen = false" :product="selectedProduct" />
   </organism-card>
 </template>
 
@@ -48,7 +43,6 @@ export default {
       selectedProduct: {},
     };
   },
-
   methods: {
     addProduductToBasket(product) {
       this.onBasket.push(product);
@@ -68,9 +62,7 @@ export default {
   },
   async created() {
     this.isProductFetch = true;
-    await this.$store
-      .dispatch('product/fetchProducts')
-      .then(() => (this.isProductFetch = false));
+    await this.$store.dispatch('product/fetchProducts').then(() => (this.isProductFetch = false));
   },
 };
 </script>
