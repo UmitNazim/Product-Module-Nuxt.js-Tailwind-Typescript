@@ -1,5 +1,8 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, config } from '@vue/test-utils';
 import AtomDivider from '../../src/components/AtomDivider';
+
+config.silent = true;
+config.showDeprecationWarnings = false;
 
 describe('AtomDivider', () => {
   let wrapper;

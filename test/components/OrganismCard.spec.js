@@ -1,5 +1,8 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, config } from '@vue/test-utils';
 import OrganismCard from '../../src/components/OrganismCard';
+
+config.silent = true;
+config.showDeprecationWarnings = false;
 
 describe('OrganismCard', () => {
   let wrapper;

@@ -1,5 +1,8 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, config } from '@vue/test-utils';
 import AtomImage from '../../src/components/AtomImage';
+
+config.silent = true;
+config.showDeprecationWarnings = false;
 
 describe('AtomImage', () => {
   let wrapper;

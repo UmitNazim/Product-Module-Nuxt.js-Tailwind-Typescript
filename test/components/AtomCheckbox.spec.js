@@ -1,5 +1,8 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, config } from '@vue/test-utils';
 import AtomCheckbox from '../../src/components/AtomCheckbox';
+
+config.silent = true;
+config.showDeprecationWarnings = false;
 
 describe('AtomCheckbox', () => {
   let wrapper;

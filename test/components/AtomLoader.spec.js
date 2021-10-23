@@ -1,5 +1,8 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, config } from '@vue/test-utils';
 import AtomLoader from '../../src/components/AtomLoader';
+
+config.silent = true;
+config.showDeprecationWarnings = false;
 
 describe('AtomLoader', () => {
   let wrapper;
