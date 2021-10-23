@@ -18,12 +18,12 @@ describe('AtomDivider', () => {
 
   describe('Props', () => {
     describe('color', () => {
-      it('checks prop acceptable value type', () => {
+      it('checks prop acceptable value type.', () => {
         expect(wrapper.vm.$options.props.color).toEqual({ type: String, default: 'mid-grey' });
       });
     });
     describe('size', () => {
-      it('checks prop acceptable value type', () => {
+      it('checks prop acceptable value type.', () => {
         expect(wrapper.vm.$options.props.size).toMatchObject({ type: String, default: 'sm' });
       });
     });

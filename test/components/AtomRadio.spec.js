@@ -11,19 +11,19 @@ describe('AtomRadio', () => {
   });
 
   describe('General', () => {
-    it('checks whether componenet was mounted or not', () => {
+    it('checks whether componenet was mounted or not.', () => {
       expect(wrapper.exists()).toBeTruthy();
     });
   });
 
   describe('Props', () => {
     describe('name', () => {
-      it('checks prop acceptable value type', () => {
+      it('checks prop acceptable value type.', () => {
         expect(wrapper.vm.$options.props.name).toEqual({ type: String, default: null });
       });
     });
     describe('label', () => {
-      it('checks prop acceptable value type', () => {
+      it('checks prop acceptable value type.', () => {
         expect(wrapper.vm.$options.props.label).toEqual({ type: String, default: null });
       });
     });
@@ -31,7 +31,7 @@ describe('AtomRadio', () => {
 
   describe('Data', () => {
     describe('proxy', () => {
-      it('checks data default value', () => {
+      it('checks data default value.', () => {
         expect(wrapper.vm.proxy).toBeFalsy();
       });
     });

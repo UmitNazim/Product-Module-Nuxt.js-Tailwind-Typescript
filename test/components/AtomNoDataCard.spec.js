@@ -16,19 +16,19 @@ describe('AtomNoDataCard', () => {
   });
 
   describe('General', () => {
-    it('checks whether componenet was mounted or not', () => {
+    it('checks whether componenet was mounted or not.', () => {
       expect(wrapper.exists()).toBeTruthy();
     });
   });
 
   describe('Props', () => {
     describe('color', () => {
-      it('checks prop acceptable value type', () => {
+      it('checks prop acceptable value type.', () => {
         expect(wrapper.vm.$options.props.color).toEqual({ type: String, default: 'snow-drift' });
       });
     });
     describe('description', () => {
-      it('checks prop acceptable value type', () => {
+      it('checks prop acceptable value type.', () => {
         expect(wrapper.vm.$options.props.description).toEqual({ type: String, default: null });
       });
     });

@@ -15,39 +15,39 @@ describe('OrganismCard', () => {
   });
 
   describe('General', () => {
-    it('checks whether componenet was mounted or not', () => {
+    it('checks whether componenet was mounted or not.', () => {
       expect(wrapper.exists()).toBeTruthy();
     });
   });
 
   describe('Props', () => {
     describe('color', () => {
-      it('checks prop acceptable value type', () => {
+      it('checks prop acceptable value type.', () => {
         expect(wrapper.vm.$options.props.color).toEqual({ type: String, default: 'white' });
       });
     });
     describe('flat', () => {
-      it('checks prop acceptable value type', () => {
+      it('checks prop acceptable value type.', () => {
         expect(wrapper.vm.$options.props.flat).toEqual({ type: Boolean, default: false });
       });
     });
     describe('shadow', () => {
-      it('checks prop acceptable value type', () => {
+      it('checks prop acceptable value type.', () => {
         expect(wrapper.vm.$options.props.shadow).toEqual({ type: Boolean, default: false });
       });
     });
     describe('noPadding', () => {
-      it('checks prop acceptable value type', () => {
+      it('checks prop acceptable value type.', () => {
         expect(wrapper.vm.$options.props.noPadding).toEqual({ type: Boolean, default: false });
       });
     });
     describe('hover', () => {
-      it('checks prop acceptable value type', () => {
+      it('checks prop acceptable value type.', () => {
         expect(wrapper.vm.$options.props.noPadding).toEqual({ type: Boolean, default: false });
       });
     });
     describe('title', () => {
-      it('checks prop acceptable value type', () => {
+      it('checks prop acceptable value type.', () => {
         expect(wrapper.vm.$options.props.title).toEqual({ type: String, default: null });
       });
     });

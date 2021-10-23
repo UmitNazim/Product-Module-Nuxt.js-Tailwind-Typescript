@@ -11,19 +11,19 @@ describe('AtomCheckbox', () => {
   });
 
   describe('General', () => {
-    it('checks whether componenet was mounted or not', () => {
+    it('checks whether componenet was mounted or not.', () => {
       expect(wrapper.exists()).toBeTruthy();
     });
   });
 
   describe('Props', () => {
     describe('value', () => {
-      it('checks prop acceptable value type', () => {
+      it('checks prop acceptable value type.', () => {
         expect(wrapper.vm.$options.props.value).toEqual({ type: Boolean, default: false });
       });
     });
     describe('label', () => {
-      it('checks prop acceptable value type', () => {
+      it('checks prop acceptable value type.', () => {
         expect(wrapper.vm.$options.props.label).toEqual({ type: String, default: null });
       });
     });
@@ -31,7 +31,7 @@ describe('AtomCheckbox', () => {
 
   describe('Data', () => {
     describe('proxy', () => {
-      it('checks data default value', () => {
+      it('checks data default value.', () => {
         expect(wrapper.vm.proxy).toBeFalsy();
       });
     });
