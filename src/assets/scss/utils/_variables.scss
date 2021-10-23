@@ -1,7 +1,5 @@
 :root {
   --navy-blue: #05445e;
-  --white: #f1f3f3;
-  --black: #000000;
   --gunmetal: #e0e5e7;
   --rose-red: #c85250;
   --soap-stone: #fffbf9;
@@ -12,8 +10,6 @@
 }
 
 $main-colors: (
-  "black": var(--black),
-  "white": var(--white),
   "navy-blue": var(--navy-blue),
   "rose-red": var(--rose-red),
   "gunmetal": var(--gunmetal),

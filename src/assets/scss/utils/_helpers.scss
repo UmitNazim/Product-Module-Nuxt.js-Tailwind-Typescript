@@ -49,18 +49,18 @@
   @include font-responsiver($on-mobile: 14px, $on-desktop: 16px);
 }
 
-.place-items-start {
+.place-start {
   @include flex-generator($align: flex-start);
 }
 
-.place-items-center {
+.place-center {
   @include flex-generator($align: center);
 }
 
-.place-items-between {
+.place-between {
   @include flex-generator($align: space-between);
 }
 
-.place-items-end {
+.place-end {
   @include flex-generator($align: flex-end);
 }

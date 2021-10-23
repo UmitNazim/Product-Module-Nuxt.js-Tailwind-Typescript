@@ -1,5 +1,5 @@
 <template>
-  <button v-bind="options" class="atom-button p-2 place-items-center" @click="$emit('on-click')">
+  <button v-bind="options" class="atom-button p-2 place-center" @click="$emit('on-click')">
     <slot></slot>
   </button>
 </template>
