@@ -1,5 +1,7 @@
 import i18n from './src/locales';
 import routes from './src/router';
+import axisoOptions from './src/utils/api';
+import storyBookOptions from './src/utils/storyBook';
 
 export default {
   mode: 'ssr',
@@ -24,7 +26,9 @@ export default {
       },
     ],
   },
-  pages: 'views',
+  dir: {
+    pages: 'views',
+  },
   router: {
     extendRoutes(nuxtRoutes, resolve) {
       nuxtRoutes.splice(
@@ -32,15 +36,11 @@ export default {
         nuxtRoutes.length,
         ...routes.map(({ component, ...rest }) => {
           return { ...rest, component: resolve(__dirname, component) };
-        })
+        }),
       );
     },
   },
-  storybook: {
-    stories: ['~/stories/**/*.stories.js'],
-    addons: ['@storybook/addon-controls'],
-    port: 4000,
-  },
+  storybook: storyBookOptions,
   css: ['~assets/scss/main.scss'],
   plugins: [],
   srcDir: 'src/',
@@ -48,17 +48,7 @@ export default {
   buildModules: ['@nuxtjs/dotenv', '@nuxt/typescript-build'],
   modules: ['@nuxtjs/i18n', '@nuxtjs/axios', 'portal-vue/nuxt'],
   i18n,
-  axios: {
-    baseURL: process.env.NUXT_APP_BASE_URL,
-    timeout: process.env.NUXT_APP_AXIOS_TIMEOUT_MS,
-    responseType: 'json',
-    headers: {
-      common: {
-        Accept: 'application/json',
-        'Accept-Language': process.env.NUXT_APP_DEFAULT_LOCALE,
-      },
-    },
-  },
+  axios: axisoOptions,
   build: {
     extend(config) {
       config.performance.hints = false;

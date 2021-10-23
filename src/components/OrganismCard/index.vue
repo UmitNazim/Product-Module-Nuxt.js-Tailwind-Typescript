@@ -1,7 +1,7 @@
 <template>
   <div v-bind="options">
     <header v-if="title">
-      <h5 class="organism-card__title">{{ $t(title) }}</h5>
+      <h5 class="organism-card__title">{{ title }}</h5>
     </header>
     <main><slot></slot></main>
   </div>

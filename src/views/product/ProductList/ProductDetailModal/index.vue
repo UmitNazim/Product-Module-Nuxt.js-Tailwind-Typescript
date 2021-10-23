@@ -10,16 +10,16 @@
           {{ product.description }}
         </p>
         <span class="block font-size-14 mb-2 text-mid-grey"
-          >Price : <strong>{{ product.price }}</strong></span
+          >{{ $t('product.price') }} : <strong>{{ product.price }}</strong></span
         >
         <span class="block font-size-14 mb-2 text-mid-grey"
-          >Category : <strong>{{ product.category }}</strong></span
+          >{{ $t('category.name') }} : <strong>{{ product.category }}</strong></span
         >
         <span class="block font-size-14 mb-2 text-mid-grey"
-          >Rating : <strong>{{ product.rating.rate }}</strong></span
+          >{{ $t('product.rating.name') }} : <strong>{{ product.rating.rate }}</strong></span
         >
         <span class="block font-size-12 text-mid-grey"
-          >Rate People Count : <strong>{{ product.rating.count }}</strong></span
+          >{{ $t('product.rating.countOf') }} : <strong>{{ product.rating.count }}</strong></span
         >
       </div>
     </div>

@@ -1,42 +1,31 @@
 {
   "basket": {
     "add": "Add To Card",
-    "generalTotalAmount": "General Total Amount",
-    "name": "Basket",
-    "summary": "Basket Summary",
-    "totalAmount": "Total Amount"
+    "generalTotalAmount": "General Total Amount"
+  },
+  "category": {
+    "list": "Categories",
+    "name": "Category"
   },
   "general": {
     "added": "Added",
-    "areYouSure": "Are You Sure?",
-    "brandPolicy": "Brand Policy",
-    "cancel": "Cancel",
-    "color": "Color",
-    "continue": "Continue",
-    "delete": "Delete",
-    "quantity": "Quantity",
-    "size": "Size"
+    "brandPolicy": "Brand Policy"
   },
   "product": {
-    "delete": "Product Delete",
     "description": {
-      "noProductInBasket": "There is no product in basket",
-      "willBeDeleted": "<strong>{product}</strong> product will be deleted.@:general.areYouSure"
+      "noProductInBasket": "There is no Product in basket yet."
     },
-    "list": "Products",
-    "name": "Product"
+    "price": "Price",
+    "rating": {
+      "countOf": "Number of People Who Rate",
+      "name": "Rate"
+    }
   },
   "sorting": {
     "name": "Sorting",
     "type": {
-      "highPriceToLow": "High Price To Low",
-      "lowPriceToHigh": "Low Price To High",
       "newToOld": "New To Old",
       "oldToNew": "Old To New"
     }
-  },
-  "category": {
-    "name": "Category",
-    "list": "Categories"
   }
 }
