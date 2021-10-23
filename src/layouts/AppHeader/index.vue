@@ -7,20 +7,18 @@
       width="100"
       height="100"
     ></atom-image>
-    <atom-button
-      @mouse-over="isOpen = true"
-      @mouse-leave="isOpen = false"
-      size="md"
-      flat
-      class="hover-opacity-7 flat h-full relative w-32"
+    <div
+      @mouseover="isOpen = true"
+      @mouseleave="isOpen = false"
+      class="hover-opacity-7 flat h-full relative w-32 place-items-center bg-regent-grey"
     >
       <atom-image class="mr-2" :src="require('~/assets/icons/basket.svg')" />
       {{ basket.length }}
-    </atom-button>
+    </div>
 
     <organism-card
       v-if="isOpen"
-      no-padding
+      no-paddings
       shadow
       flat
       color="snow-drift"
