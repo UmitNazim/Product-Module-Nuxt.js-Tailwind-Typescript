@@ -1,11 +1,5 @@
 <template>
-  <button
-    v-bind="options"
-    class="atom-button p-2 place-items-center"
-    @click="$emit('on-click')"
-    @mouseover="$emit('mouse-over')"
-    @mouseleave="$emit('mouse-leave')"
-  >
+  <button v-bind="options" class="atom-button p-2 place-items-center" @click="$emit('on-click')">
     <slot></slot>
   </button>
 </template>
@@ -49,9 +43,9 @@ export default {
     options() {
       return {
         class: {
-          [`text-${this.color}`]: this.color,
-          [`bg-${this.bgColor}`]: this.bgColor,
-          [`atom-button__${this.size}`]: this.size,
+          [`text-${this.color}`]: true,
+          [`bg-${this.bgColor}`]: true,
+          [`atom-button__${this.size}`]: true,
           'w-full': this.block,
           'atom-button__disabled': this.disabled,
           'rounded-none': this.flat,

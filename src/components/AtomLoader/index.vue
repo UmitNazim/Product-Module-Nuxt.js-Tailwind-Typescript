@@ -25,8 +25,8 @@ export default {
       return {
         class: {
           'atom-loader__bounce': true,
-          [`bg-${this.color}`]: this.color,
-          [`atom-loader__${this.size}`]: this.size,
+          [`bg-${this.color}`]: true,
+          [`atom-loader__${this.size}`]: true,
         },
       };
     },

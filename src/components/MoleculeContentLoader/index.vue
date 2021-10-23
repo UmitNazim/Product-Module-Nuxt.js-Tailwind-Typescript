@@ -2,6 +2,7 @@
   <div>
     <template v-if="type == 'product'">
       <content-loader
+        class="molecule-content-loader__product"
         :width="272"
         :height="314"
         :speed="1"
@@ -26,6 +27,7 @@
     </template>
     <template v-if="type == 'category'">
       <content-loader
+        class="molecule-content-loader__category"
         :width="232"
         :height="21"
         :speed="1"
