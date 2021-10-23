@@ -1,15 +1,15 @@
-import i18n from './src/locales';
+import i18nOptions from './src/locales';
 import routes from './src/router';
 import axisoOptions from './src/utils/api';
 import storyBookOptions from './src/utils/storyBook';
 
 export default {
-  mode: 'ssr',
+  ssr: true,
   devtools: true,
   head: {
-    title: 'Knawat Product Module',
+    title: process.env.NUXT_APP_TITLE,
     htmlAttrs: {
-      lang: 'en',
+      lang: process.env.NUXT_APP_DEFAULT_LOCALE,
     },
     meta: [
       { charset: 'utf-8' },
@@ -42,13 +42,15 @@ export default {
   },
   storybook: storyBookOptions,
   css: ['~assets/scss/main.scss'],
-  plugins: [],
   srcDir: 'src/',
   components: true,
-  buildModules: ['@nuxtjs/dotenv', '@nuxt/typescript-build'],
+  buildModules: ['@nuxtjs/dotenv', '@nuxt/typescript-build', '@nuxtjs/tailwindcss'],
   modules: ['@nuxtjs/i18n', '@nuxtjs/axios', 'portal-vue/nuxt'],
-  i18n,
+  i18n: i18nOptions,
   axios: axisoOptions,
+  tailwindcss: {
+    mode: 'jit',
+  },
   build: {
     extend(config) {
       config.performance.hints = false;

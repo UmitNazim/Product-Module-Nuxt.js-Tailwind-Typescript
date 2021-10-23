@@ -1,15 +1,17 @@
 <template>
-  <organism-card :title="$t('sorting.name')" color="bg-white" shadow>
-    <atom-radio
-      v-for="(field, index) in fields"
-      :key="`sorting-item-${index}`"
-      :label="$t(`sorting.type.${field.label}`)"
-      name="sorting-types"
-      class="mb-2"
-      :checked="field.checked"
-      @on-change="sortProductBy(field)"
-    />
-  </organism-card>
+  <aside>
+    <organism-card :title="$t('sorting.name')" color="bg-white" shadow>
+      <atom-radio
+        v-for="(field, index) in fields"
+        :key="`sorting-item-${index}`"
+        :label="$t(`sorting.type.${field.label}`)"
+        name="sorting-types"
+        class="mb-2"
+        :checked="field.checked"
+        @on-change="sortProductBy(field)"
+      />
+    </organism-card>
+  </aside>
 </template>
 
 <script>

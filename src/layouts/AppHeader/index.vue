@@ -1,5 +1,5 @@
 <template>
-  <header class="app-header place-items-between">
+  <header class="app-header place-between">
     <atom-image
       class="hover-opacity-7 mx-2"
       src="https://www.knawat.com/wp-content/themes/knawatv4/dist/images/logo_56c11528.svg"
@@ -10,7 +10,7 @@
     <div
       @mouseover="isOpen = true"
       @mouseleave="isOpen = false"
-      class="hover-opacity-7 flat h-full relative w-32 place-items-center bg-regent-grey text-white"
+      class="hover-opacity-7 flat h-full relative w-32 place-center bg-regent-grey text-white"
     >
       <atom-image class="mr-2" :src="require('~/assets/icons/basket.svg')" />
       {{ basket.length }}
@@ -26,7 +26,7 @@
     >
       <template v-if="basket.length">
         <template v-for="({ price, title }, index) in basket">
-          <div class="place-items-between font-size-14 text-mid-grey" :key="`basket-item-${index}`">
+          <div class="place-between font-size-14 text-mid-grey" :key="`basket-item-${index}`">
             <span>{{ title }}</span>
             <span> {{ price }} &#8378;</span>
           </div>

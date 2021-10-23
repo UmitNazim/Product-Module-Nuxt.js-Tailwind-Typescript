@@ -1,12 +1,12 @@
 <template>
   <portal to="modal-portal">
     <div
-      class="organism-modal__overlay place-items-center"
+      class="organism-modal__overlay place-center"
       @click="closeOnOutSideClick && $emit('on-close')"
     >
-      <div v-bind="containerOptions" class="organism-modal__content p-3 d-flex flex-column">
+      <div v-bind="containerOptions" class="organism-modal__content p-3 flex flex-col">
         <header>
-          <div class="place-items-between">
+          <div class="place-between">
             <h5 class="font-size-14 m-0">{{ title }}</h5>
             <atom-button bg-color="transparent" @on-click="$emit('on-close')">
               <atom-image :src="require('~/assets/icons/close.svg')"

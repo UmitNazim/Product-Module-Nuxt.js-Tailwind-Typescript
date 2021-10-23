@@ -1,5 +1,5 @@
 <template>
-  <div class="place-items-start">
+  <div class="place-start">
     <input
       :id="label"
       v-model="proxy"

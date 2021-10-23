@@ -1,5 +1,5 @@
 <template>
-  <div class="atom-radio place-items-start ">
+  <div class="atom-radio place-start ">
     <input
       :id="label"
       :name="name"
