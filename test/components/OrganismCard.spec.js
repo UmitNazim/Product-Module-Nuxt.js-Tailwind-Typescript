@@ -1,5 +1,5 @@
 import { shallowMount, config } from '@vue/test-utils';
-import OrganismCard from '../../src/components/OrganismCard';
+import OrganismCard from '@/components/OrganismCard';
 
 config.silent = true;
 config.showDeprecationWarnings = false;

@@ -1,5 +1,5 @@
 import { shallowMount, config } from '@vue/test-utils';
-import AtomDivider from '../../src/components/AtomDivider';
+import AtomDivider from '@/components/AtomDivider';
 
 config.silent = true;
 config.showDeprecationWarnings = false;

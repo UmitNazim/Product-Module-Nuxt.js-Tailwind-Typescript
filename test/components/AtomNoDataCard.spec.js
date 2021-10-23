@@ -1,6 +1,6 @@
 import { shallowMount, config } from '@vue/test-utils';
-import AtomNoDataCard from '../../src/components/AtomNoDataCard';
-import OrganismCard from '../../src/components/OrganismCard';
+import AtomNoDataCard from '@/components/AtomNoDataCard';
+import OrganismCard from '@/components/OrganismCard';
 
 config.silent = true;
 config.showDeprecationWarnings = false;

@@ -1,5 +1,5 @@
 import { shallowMount, config } from '@vue/test-utils';
-import MoleculeContentLoader from '../../src/components/MoleculeContentLoader';
+import MoleculeContentLoader from '@/components/MoleculeContentLoader';
 
 config.silent = true;
 config.showDeprecationWarnings = false;

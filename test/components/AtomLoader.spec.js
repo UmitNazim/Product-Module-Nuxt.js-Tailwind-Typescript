@@ -1,5 +1,5 @@
 import { shallowMount, config } from '@vue/test-utils';
-import AtomLoader from '../../src/components/AtomLoader';
+import AtomLoader from '@/components/AtomLoader';
 
 config.silent = true;
 config.showDeprecationWarnings = false;

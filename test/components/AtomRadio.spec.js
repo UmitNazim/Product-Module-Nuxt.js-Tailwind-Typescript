@@ -1,5 +1,5 @@
 import { shallowMount, config } from '@vue/test-utils';
-import AtomRadio from '../../src/components/AtomRadio';
+import AtomRadio from '@/components/AtomRadio';
 
 config.silent = true;
 config.showDeprecationWarnings = false;

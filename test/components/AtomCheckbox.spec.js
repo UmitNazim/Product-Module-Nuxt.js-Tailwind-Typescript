@@ -1,5 +1,5 @@
 import { shallowMount, config } from '@vue/test-utils';
-import AtomCheckbox from '../../src/components/AtomCheckbox';
+import AtomCheckbox from '@/components/AtomCheckbox';
 
 config.silent = true;
 config.showDeprecationWarnings = false;
