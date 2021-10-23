@@ -1,5 +1,5 @@
 <template>
-  <organism-card title="category.list" color="bg-white" shadow>
+  <organism-card :title="$t('category.list')" color="bg-white" shadow>
     <template v-if="isCategory">
       <molecule-content-loader
         v-for="n in 4"

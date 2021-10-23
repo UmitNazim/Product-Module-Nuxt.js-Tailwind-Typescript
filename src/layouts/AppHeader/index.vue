@@ -10,7 +10,7 @@
     <div
       @mouseover="isOpen = true"
       @mouseleave="isOpen = false"
-      class="hover-opacity-7 flat h-full relative w-32 place-items-center bg-regent-grey"
+      class="hover-opacity-7 flat h-full relative w-32 place-items-center bg-regent-grey text-white"
     >
       <atom-image class="mr-2" :src="require('~/assets/icons/basket.svg')" />
       {{ basket.length }}
@@ -33,11 +33,15 @@
           <atom-divider class="my-2" :key="`basket-divider-${index}`" />
         </template>
         <span class="float-right"
-          >Total Price :
+          >{{ $t('basket.generalTotalAmount') }} :
           <strong>{{ totalPrice.toFixed(2) }} &#8378;</strong>
         </span>
       </template>
-      <atom-no-data-card description="No Data Yet" color="white" v-else></atom-no-data-card>
+      <atom-no-data-card
+        :description="$t('product.description.noProductInBasket')"
+        color="white"
+        v-else
+      ></atom-no-data-card>
     </organism-card>
   </header>
 </template>

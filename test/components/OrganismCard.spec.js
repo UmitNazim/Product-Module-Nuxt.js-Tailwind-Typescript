@@ -7,11 +7,7 @@ config.showDeprecationWarnings = false;
 describe('OrganismCard', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = shallowMount(OrganismCard, {
-      mocks: {
-        $t: (msg) => msg,
-      },
-    });
+    wrapper = shallowMount(OrganismCard);
   });
 
   describe('General', () => {
