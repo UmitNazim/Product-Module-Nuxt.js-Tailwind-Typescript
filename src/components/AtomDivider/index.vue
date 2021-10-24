@@ -2,8 +2,10 @@
   <hr v-bind="options" />
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'AtomDivider',
   props: {
     color: {
@@ -13,19 +15,21 @@ export default {
     size: {
       type: String,
       default: 'sm',
-      validator: value => ['sm', 'md', 'lg'].includes(value),
+      validator: (val: string) => ['sm', 'md', 'lg'].includes(val),
     },
   },
   computed: {
-    options() {
+    options(): {
+      class: Record<string, boolean>;
+    } {
       return {
         class: {
           'atom-divider': true,
-          [`bg-${this.color}`]: this.color,
-          [`atom-divider__${this.size}`]: this.size,
+          [`bg-${this.color}`]: true,
+          [`atom-divider__${this.size}`]: true,
         },
       };
     },
   },
-};
+});
 </script>

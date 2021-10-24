@@ -11,8 +11,10 @@
   </organism-card>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'AtomNoDataCard',
   props: {
     color: {
@@ -24,5 +26,5 @@ export default {
       default: null,
     },
   },
-};
+});
 </script>

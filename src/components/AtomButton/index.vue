@@ -4,19 +4,21 @@
   </button>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'AtomButton',
   props: {
     type: {
       type: String,
       default: 'button',
-      validator: val => ['button', 'submit'].includes(val),
+      validator: (val: string) => ['button', 'submit'].includes(val),
     },
     size: {
       type: String,
       default: 'sm',
-      validator: val => ['sm', 'md', 'lg'].includes(val),
+      validator: (val: string) => ['sm', 'md', 'lg'].includes(val),
     },
     bgColor: {
       type: String,
@@ -40,7 +42,11 @@ export default {
     },
   },
   computed: {
-    options() {
+    options(): {
+      class: Record<string, boolean>;
+      disabled: boolean;
+      type: string;
+    } {
       return {
         class: {
           [`text-${this.color}`]: true,
@@ -55,5 +61,5 @@ export default {
       };
     },
   },
-};
+});
 </script>

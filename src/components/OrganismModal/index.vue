@@ -24,14 +24,16 @@
   </portal>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'OrganismModal',
   props: {
     size: {
       type: String,
       default: 'sm',
-      validator: val => ['sm', 'md', 'lg', 'xl'].includes(val),
+      validator: (val: string) => ['sm', 'md', 'lg', 'xl'].includes(val),
     },
     closeOnOutSideClick: {
       type: Boolean,
@@ -51,11 +53,13 @@ export default {
     },
   },
   computed: {
-    containerOptions() {
+    containerOptions(): {
+      class: Record<string, boolean | string>;
+    } {
       return {
         class: {
           'organism-modal__fullscreen-on-mobile': this.fullScreenOnMobile,
-          [`organism-modal__${this.size}`]: this.size,
+          [`organism-modal__${this.size}`]: true,
           'rounded-0': this.flat || this.fullScreenOnMobile,
           ...this.$attrs,
         },
@@ -63,10 +67,10 @@ export default {
     },
   },
   created() {
-    document.querySelector('body').classList.add('overflow-hidden');
+    (document.querySelector('body') as HTMLElement).classList.add('overflow-hidden');
   },
   destroyed() {
-    document.querySelector('body').classList.remove('overflow-hidden');
+    (document.querySelector('body') as HTMLElement).classList.remove('overflow-hidden');
   },
-};
+});
 </script>

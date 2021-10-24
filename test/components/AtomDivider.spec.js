@@ -33,7 +33,7 @@ describe('AtomDivider', () => {
     describe('options', () => {
       it('checks whether function returns correct content or not.', () => {
         expect(wrapper.vm.options).toEqual({
-          class: { 'atom-divider': true, 'atom-divider__sm': 'sm', 'bg-mid-grey': 'mid-grey' },
+          class: { 'atom-divider': true, 'atom-divider__sm': true, 'bg-mid-grey': true },
         });
       });
       it('checks whether function returns correct content or not when props were changed.', async () => {
@@ -42,7 +42,7 @@ describe('AtomDivider', () => {
           size: 'lg',
         });
         expect(wrapper.vm.options).toEqual({
-          class: { 'atom-divider': true, 'atom-divider__lg': 'lg', 'bg-seas-hell': 'seas-hell' },
+          class: { 'atom-divider': true, 'atom-divider__lg': true, 'bg-seas-hell': true },
         });
       });
     });

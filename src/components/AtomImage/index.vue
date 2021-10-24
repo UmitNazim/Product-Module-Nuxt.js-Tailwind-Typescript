@@ -2,8 +2,10 @@
   <img v-bind="options" />
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'AtomImage',
   props: {
     src: {
@@ -28,7 +30,12 @@ export default {
     },
   },
   computed: {
-    options() {
+    options(): {
+      src: string;
+      alt: string;
+      width: string | number;
+      height: string | number;
+    } {
       return {
         src: this.src,
         alt: this.alt,
@@ -38,5 +45,5 @@ export default {
       };
     },
   },
-};
+});
 </script>
