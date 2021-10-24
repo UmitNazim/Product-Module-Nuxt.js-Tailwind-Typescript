@@ -4,10 +4,10 @@
       :id="label"
       v-model="proxy"
       type="checkbox"
-      class="atom-checkbox__input"
+      class="atom-checkbox__input cursor-pointer"
       @change="({ target: { checked } }) => $emit('input', proxy)"
     />
-    <label class="atom-checkbox__label font-size-14" :for="label" v-text="label" />
+    <label class="atom-checkbox__label font-size-14 cursor-pointer" :for="label" v-text="label" />
   </div>
 </template>
 

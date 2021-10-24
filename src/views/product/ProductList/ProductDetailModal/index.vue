@@ -30,13 +30,12 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropOptions } from 'vue';
-import { Product } from '@/src/models/product';
+import Vue from 'vue';
 
 export default Vue.extend({
   name: 'ProductDetailModal',
   props: {
-    product: <PropOptions<Product>>{
+    product: {
       type: Object,
       default: () => {},
     },
