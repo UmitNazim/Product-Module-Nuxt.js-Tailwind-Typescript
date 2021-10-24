@@ -1,4 +1,4 @@
-import { Product, Category } from '@/src/types/product';
+import { Product, Category } from '~/src/models/product';
 import { $axios } from '../../utils/api';
 
 export default {

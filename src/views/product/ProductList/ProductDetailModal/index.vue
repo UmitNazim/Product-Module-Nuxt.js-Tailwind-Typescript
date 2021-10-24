@@ -26,14 +26,17 @@
   </organism-modal>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue, { PropOptions } from 'vue';
+import { Product } from '@/src/models/product';
+
+export default Vue.extend({
   name: 'ProductDetailModal',
   props: {
-    product: {
+    product: <PropOptions<Product>>{
       type: Object,
       default: () => {},
     },
   },
-};
+});
 </script>

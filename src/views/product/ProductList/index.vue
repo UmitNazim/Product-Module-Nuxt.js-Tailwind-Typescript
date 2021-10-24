@@ -1,7 +1,7 @@
 <template>
   <organism-card class="md:p-4" color="white" no-padding shadow>
     <div class="flex flex-wrap">
-      <template v-if="isProductFetch || onSort">
+      <template v-if="isProductFetchStart || onSortingStart">
         <molecule-content-loader
           v-for="n in 20"
           :key="`product-placeholder-${n}`"
@@ -14,55 +14,68 @@
           :key="product.id"
           :product="product"
           @on-product-add="addProduductToBasket(product)"
-          @on-product-detail="onProduct(product)"
+          @on-product-detail="viewProductDetail(product)"
           class="w-full md:w-1/4 sm:mb-2"
         />
       </template>
     </div>
-    <product-detail-modal v-if="isOpen" @on-close="isOpen = false" :product="selectedProduct" />
+    <product-detail-modal
+      v-if="needsProductDetailModalOpen"
+      @on-close="needsProductDetailModalOpen = false"
+      :product="selectedProduct"
+    />
   </organism-card>
 </template>
 
-<script>
-import ProductDetailModal from './ProductDetailModal';
-import ProductCard from './ProductCard';
+<script lang="ts">
+import Vue from 'vue';
+import { Product } from '@/src/models/product';
+import ProductDetailModal from './ProductDetailModal/index.vue';
+import ProductCard from './ProductCard/index.vue';
 
-export default {
+export default Vue.extend({
   components: { ProductDetailModal, ProductCard },
   props: {
-    onSort: {
+    onSortingStart: {
       type: Boolean,
       default: false,
     },
   },
-  data() {
+  data(): {
+    basketProducts: Product[];
+    needsProductDetailModalOpen: boolean;
+    isProductFetchStart: boolean;
+    selectedProduct: Partial<Product>;
+  } {
     return {
-      onBasket: [],
-      isOpen: false,
-      isProductFetch: false,
+      basketProducts: [],
+      needsProductDetailModalOpen: false,
+      isProductFetchStart: false,
       selectedProduct: {},
     };
   },
   methods: {
-    addProduductToBasket(product) {
-      this.onBasket.push(product);
+    addProduductToBasket(product: Product) {
+      this.basketProducts.push(product);
       this.$store.dispatch('basket/addProductToBasket', {
-        items: [...this.onBasket],
+        items: [...this.basketProducts],
       });
     },
-    onProduct(selected = {}) {
-      this.isOpen = true;
-      this.selectedProduct = selected;
+    viewProductDetail(product = {}) {
+      this.needsProductDetailModalOpen = true;
+      this.selectedProduct = product;
     },
   },
   computed: {
-    products() {
+    products(): Product[] {
       return this.$store.getters['product/getProducts'];
     },
   },
   async created() {
-    this.isProductFetch = true;
-    await this.$store.dispatch('product/fetchProducts').then(() => (this.isProductFetch = false));
+    this.isProductFetchStart = true;
+    await this.$store
+      .dispatch('product/fetchProducts')
+      .then(() => (this.isProductFetchStart = false));
   },
-};
+});
 </script>

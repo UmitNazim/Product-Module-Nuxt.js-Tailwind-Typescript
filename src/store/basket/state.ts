@@ -1,4 +1,4 @@
-import { Basket } from '@/src/types/product';
+import { Basket } from '~/src/models/product';
 
 export interface State {
   basket?: Basket[];

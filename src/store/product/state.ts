@@ -1,4 +1,4 @@
-import { Product, Category } from '@/src/types/product';
+import { Product, Category } from '~/src/models/product';
 
 export interface State {
   products: Product[];

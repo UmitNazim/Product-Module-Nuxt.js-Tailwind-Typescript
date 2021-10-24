@@ -7,13 +7,19 @@
   </div>
 </template>
 
-<script>
-import AppHeader from './AppHeader';
-import AppBody from './AppBody';
-import AppFooter from './AppFooter';
+<script lang="ts">
+import Vue from 'vue';
 
-export default {
+import AppHeader from './AppHeader/index.vue';
+import AppBody from './AppBody/index.vue';
+import AppFooter from './AppFooter/index.vue';
+
+export default Vue.extend({
   name: 'Default',
-  components: { AppHeader, AppBody, AppFooter },
-};
+  components: {
+    AppHeader,
+    AppBody,
+    AppFooter,
+  },
+});
 </script>

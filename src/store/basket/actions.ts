@@ -1,4 +1,4 @@
-import { Basket } from '@/src/types/product';
+import { Basket } from '~/src/models/product';
 
 export default {
   addProductToBasket({ commit }: { commit: Function }, { items }: { items: Basket }): void {

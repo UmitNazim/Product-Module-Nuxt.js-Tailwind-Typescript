@@ -1,4 +1,4 @@
-import { Category, Product } from '@/src/types/product';
+import { Category, Product } from '~/src/models/product';
 
 export default {
   getProducts: ({

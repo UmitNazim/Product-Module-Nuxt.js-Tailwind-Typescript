@@ -9,13 +9,15 @@
   </footer>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'AppFooter',
   computed: {
     year() {
       return new Date().getFullYear();
     },
   },
-};
+});
 </script>

@@ -14,7 +14,7 @@ export interface Product {
 }
 
 export interface Category {
-  category: Array<string>;
+  category: string;
 }
 
 export interface Basket {

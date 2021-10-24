@@ -46,21 +46,27 @@
   </header>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import { Basket } from '@/src/models/product';
+
+export default Vue.extend({
   name: 'AppNavbar',
-  data() {
+  data(): { isOpen: boolean } {
     return {
       isOpen: false,
     };
   },
   computed: {
     totalPrice() {
-      return this.basket.reduce((accum, { price }) => accum + price, 0);
+      return (this as any).basket.reduce(
+        (accum: number, { price }: { price: number }) => accum + price,
+        0,
+      );
     },
-    basket() {
+    basket(): Array<Basket> {
       return this.$store.getters['basket/getBasket'];
     },
   },
-};
+});
 </script>
