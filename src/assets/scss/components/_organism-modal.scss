@@ -38,10 +38,10 @@
   }
 
   &__lg {
-    @include width-responsiver-by-full-width($on-mobile: 20px, $on-desktop: 550px);
+    @include width-responsiver-by-full-width($on-mobile: 20px, $on-desktop: 600px);
   }
 
   &__xl {
-    @include width-responsiver-by-full-width($on-mobile: 10px, $on-desktop: 650px);
+    @include width-responsiver-by-full-width($on-mobile: 10px, $on-desktop: 700px);
   }
 }

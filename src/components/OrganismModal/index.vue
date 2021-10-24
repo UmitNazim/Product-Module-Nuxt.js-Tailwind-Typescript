@@ -4,7 +4,7 @@
       class="organism-modal__overlay place-center"
       @click="closeOnOutSideClick && $emit('on-close')"
     >
-      <div v-bind="containerOptions" class="organism-modal__content p-3 flex flex-col">
+      <div class="organism-modal__content p-3 flex flex-col" v-bind="containerOptions">
         <header>
           <div class="place-between">
             <h5 class="font-size-14 m-0">{{ title }}</h5>

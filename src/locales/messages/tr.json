@@ -1,7 +1,7 @@
 {
   "basket": {
     "add": "Sepete Ekle",
-    "totalAmount": "Toplam Ödenecek Miktar"
+    "generalTotalAmount": "Toplam Ödenecek Ücret"
   },
   "category": {
     "list": "Kategoriler",

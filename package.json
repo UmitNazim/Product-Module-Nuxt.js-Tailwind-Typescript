@@ -23,8 +23,7 @@
     "portal-vue": "^2.1.7",
     "ts-node": "^10.3.1",
     "vue-content-loader": "^0.2.3",
-    "vue-docgen-loader": "^1.5.0",
-    "vue-property-decorator": "^9.1.2"
+    "vue-docgen-loader": "^1.5.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.7",

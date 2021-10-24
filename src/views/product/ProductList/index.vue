@@ -1,11 +1,11 @@
 <template>
-  <organism-card class="md:p-4" color="white" no-padding shadow>
+  <organism-card shadow>
     <div class="flex flex-wrap">
       <template v-if="isProductFetchStart || onSortingStart">
         <molecule-content-loader
           v-for="n in 20"
           :key="`product-placeholder-${n}`"
-          class="w-full md:w-1/4 p-2 sm:mb-2"
+          class="w-full md:w-1/4 p-2"
         />
       </template>
       <template v-else>
@@ -15,7 +15,7 @@
           :product="product"
           @on-product-add="addProduductToBasket(product)"
           @on-product-detail="viewProductDetail(product)"
-          class="w-full md:w-1/4 sm:mb-2"
+          class="w-full md:w-1/4 mb-2"
         />
       </template>
     </div>
@@ -29,12 +29,15 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Product } from '@/src/models/product';
+import { Product } from '@/src/models/product/';
 import ProductDetailModal from './ProductDetailModal/index.vue';
 import ProductCard from './ProductCard/index.vue';
 
 export default Vue.extend({
-  components: { ProductDetailModal, ProductCard },
+  components: {
+    ProductDetailModal,
+    ProductCard,
+  },
   props: {
     onSortingStart: {
       type: Boolean,
