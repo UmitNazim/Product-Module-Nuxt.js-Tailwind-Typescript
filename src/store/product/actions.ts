@@ -1,17 +1,18 @@
-import { Product, Category } from '~/src/models/product';
+import { Product, Category } from '@/src/types/product';
+import { $axios } from '../../utils/api';
 
 export default {
   async fetchProducts(
     { commit }: { commit: Function },
-    { sort = 'asc', limit }: { sort: string; limit: number },
+    { sort = 'asc', limit } = {} as { sort: string; limit: number },
   ) {
-    const { data: items }: { data: Product[] } = await this.$axios.get('products', {
+    const { data: items }: { data: Product[] } = await $axios.get('products', {
       params: { sort, limit },
     });
     commit('setProducts', { items });
   },
   async fetchCategories({ commit }: { commit: Function }) {
-    const { data: items }: { data: Category[] } = await this.$axios.get('products/categories');
+    const { data: items }: { data: Category[] } = await $axios.get('products/categories');
     commit('setCategories', { items });
   },
 

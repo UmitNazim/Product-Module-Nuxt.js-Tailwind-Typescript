@@ -1,4 +1,4 @@
-import { Category, Product } from '~/src/models/product';
+import { Category, Product } from '@/src/types/product';
 
 export default {
   getProducts: ({
@@ -9,7 +9,7 @@ export default {
     products: Product[];
   }): Product[] =>
     selectedCategories.length
-      ? products.filter(({ category }): Boolean => selectedCategories.includes(category))
+      ? products.filter(({ category }: any) => selectedCategories.includes(category))
       : products,
 
   getCategories: ({ categories }: { categories: Category[] }): Category[] => categories,

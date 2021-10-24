@@ -1,5 +1,5 @@
 import { State } from './state';
-import { Product, Category } from '~/src/models/product';
+import { Product, Category } from '@/src/types/product';
 
 export default {
   setProducts(state: State, { items = [] }: { items: Product[] }): void {

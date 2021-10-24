@@ -1,6 +1,5 @@
 import i18nOptions from './src/locales';
 import routes from './src/router';
-import axisoOptions from './src/utils/api';
 import storyBookOptions from './src/utils/storyBook';
 
 export default {
@@ -44,10 +43,21 @@ export default {
   css: ['~assets/scss/main.scss'],
   srcDir: 'src/',
   components: true,
+  plugins: ['~/plugins/axios-accessor.ts'],
   buildModules: ['@nuxtjs/dotenv', '@nuxt/typescript-build', '@nuxtjs/tailwindcss'],
   modules: ['@nuxtjs/i18n', '@nuxtjs/axios', 'portal-vue/nuxt'],
   i18n: i18nOptions,
-  axios: axisoOptions,
+  axios: {
+    baseURL: process.env.NUXT_APP_BASE_URL,
+    timeout: process.env.NUXT_APP_AXIOS_TIMEOUT_MS,
+    responseType: 'json',
+    headers: {
+      common: {
+        Accept: 'application/json',
+        'Accept-Language': process.env.NUXT_APP_DEFAULT_LOCALE,
+      },
+    },
+  },
   tailwindcss: {
     mode: 'jit',
   },
