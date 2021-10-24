@@ -4,11 +4,11 @@
       :id="label"
       :name="name"
       type="radio"
-      class="atom-radio__input"
+      class="atom-radio__input cursor-pointer"
       @change="$emit('on-change')"
       v-bind="$attrs"
     />
-    <label class="atom-radio__label" :for="label" v-html="label" />
+    <label class="atom-radio__label font-size-14 cursor-pointer" :for="label" v-html="label" />
   </div>
 </template>
 

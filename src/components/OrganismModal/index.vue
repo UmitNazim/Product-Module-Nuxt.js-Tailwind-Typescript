@@ -4,7 +4,7 @@
       class="organism-modal__overlay place-center"
       @click="closeOnOutSideClick && $emit('on-close')"
     >
-      <div v-bind="containerOptions" class="organism-modal__content p-3 flex flex-col">
+      <div class="organism-modal__content p-3 flex flex-col" v-bind="containerOptions">
         <header>
           <div class="place-between">
             <h5 class="font-size-14 m-0">{{ title }}</h5>
@@ -51,6 +51,10 @@ export default Vue.extend({
       type: String,
       default: null,
     },
+    color: {
+      type: String,
+      default: 'white',
+    },
   },
   computed: {
     containerOptions(): {
@@ -60,6 +64,7 @@ export default Vue.extend({
         class: {
           'organism-modal__fullscreen-on-mobile': this.fullScreenOnMobile,
           [`organism-modal__${this.size}`]: true,
+          [`bg-${this.color}`]: true,
           'rounded-0': this.flat || this.fullScreenOnMobile,
           ...this.$attrs,
         },
