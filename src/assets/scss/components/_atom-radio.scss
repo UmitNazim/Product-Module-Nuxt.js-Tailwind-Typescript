@@ -1,7 +1,7 @@
 .atom-radio {
   &__input {
     -webkit-appearance: none;
-    width: 22px;
+    min-width: 22px;
     height: 22px;
     border-radius: 50%;
     border: 2px solid var(--gunmetal);
@@ -23,7 +23,6 @@
   }
 
   &__label {
-    font-size: 14px;
     margin-left: 12px;
     color: var(--mid-grey);
   }

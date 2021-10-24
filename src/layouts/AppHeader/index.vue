@@ -22,7 +22,7 @@
       shadow
       flat
       color="snow-drift"
-      class="absolute md:w-2/5 right-px	top-20  w-full p-4 fade-in z-10"
+      class="absolute md:w-3/6 right-px	top-20  w-full p-4 fade-in z-10"
     >
       <template v-if="basket.length">
         <template v-for="({ price, title }, index) in basket">
@@ -32,7 +32,7 @@
           </div>
           <atom-divider class="my-2" :key="`basket-divider-${index}`" />
         </template>
-        <span class="float-right"
+        <span class="float-right font-size-14"
           >{{ $t('basket.generalTotalAmount') }} :
           <strong>{{ totalPrice.toFixed(2) }} &#8378;</strong>
         </span>

@@ -8,7 +8,7 @@
       @change="$emit('on-change')"
       v-bind="$attrs"
     />
-    <label class="atom-radio__label" :for="label" v-html="label" />
+    <label class="atom-radio__label font-size-14" :for="label" v-html="label" />
   </div>
 </template>
 

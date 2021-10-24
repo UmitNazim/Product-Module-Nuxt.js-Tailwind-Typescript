@@ -1,8 +1,10 @@
 <template>
-  <organism-modal @on-close="$emit('on-close')" close-on-out-side-click size="lg">
+  <organism-modal @on-close="$emit('on-close')" close-on-out-side-click size="lg" class="bg-white">
     <div class="flex flex-wrap">
-      <atom-image class="hover-opacity-7 w-full md:w-5/12 p-2" :src="product.image" />
-      <div class="w-full md:w-7/12 p-2">
+      <div class=" w-full md:w-6/12 p-2">
+        <atom-image class="hover-opacity-7" :src="product.image" />
+      </div>
+      <div class="w-full md:w-6/12 p-2">
         <h1 class="block font-size-16 mb-2">
           <strong>{{ product.title }}</strong>
         </h1>
@@ -10,7 +12,7 @@
           {{ product.description }}
         </p>
         <span class="block font-size-14 mb-2 text-mid-grey"
-          >{{ $t('product.price') }} : <strong>{{ product.price }}</strong></span
+          >{{ $t('product.price') }} : <strong>{{ product.price }} &#8378;</strong></span
         >
         <span class="block font-size-14 mb-2 text-mid-grey"
           >{{ $t('category.name') }} : <strong>{{ product.category }}</strong></span

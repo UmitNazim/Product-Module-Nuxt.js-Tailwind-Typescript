@@ -50,11 +50,8 @@ export default {
   i18n: i18nOptions,
   axios: axiosOptions,
   tailwindcss: {
-    mode: 'jit',
-  },
-  build: {
-    extend(config) {
-      config.performance.hints = false;
+    config: {
+      purge: { enabled: false },
     },
   },
 };

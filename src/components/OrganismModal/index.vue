@@ -51,6 +51,10 @@ export default Vue.extend({
       type: String,
       default: null,
     },
+    color: {
+      type: String,
+      default: 'white',
+    },
   },
   computed: {
     containerOptions(): {
@@ -60,6 +64,7 @@ export default Vue.extend({
         class: {
           'organism-modal__fullscreen-on-mobile': this.fullScreenOnMobile,
           [`organism-modal__${this.size}`]: true,
+          [`bg-${this.color}`]: true,
           'rounded-0': this.flat || this.fullScreenOnMobile,
           ...this.$attrs,
         },

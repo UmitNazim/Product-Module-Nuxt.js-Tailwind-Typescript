@@ -6,8 +6,11 @@
     "serve": "nuxt",
     "build": "nuxt build",
     "generate": "nuxt generate",
+    "start": "nuxt start",
     "storybook": "nuxt storybook",
     "storybook:build": "nuxt storybook build",
+    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lint": "npm run lint:js",
     "test:unit": "jest"
   },
   "dependencies": {

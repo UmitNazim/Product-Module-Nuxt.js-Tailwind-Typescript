@@ -7,7 +7,7 @@
       class="atom-checkbox__input"
       @change="({ target: { checked } }) => $emit('input', proxy)"
     />
-    <label class="atom-checkbox__label" :for="label" v-text="label" />
+    <label class="atom-checkbox__label font-size-14" :for="label" v-text="label" />
   </div>
 </template>
 
