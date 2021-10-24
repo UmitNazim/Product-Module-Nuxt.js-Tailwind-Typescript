@@ -2,29 +2,34 @@
   <div class="flex flex-wrap">
     <aside class="w-full md:w-1/5">
       <div class="flex flex-wrap md:mr-3">
-        <sorting-content @on-sort="e => (onSort = e)" class="w-full md:mb-4" />
+        <sorting-content @on-sorting-start="e => (isSortingStart = e)" class="w-full md:mb-4" />
         <filter-content class="w-full mb-4 " />
       </div>
     </aside>
     <section class="w-full md:w-4/5">
-      <product-list :on-sort="onSort" />
+      <product-list :on-sorting-start="isSortingStart" />
     </section>
   </div>
 </template>
 
-<script>
-import SortingContent from './SortingContent';
-import FilterContent from './FilterContent';
-import ProductList from './ProductList';
+<script lang="ts">
+import Vue from 'vue';
 
-export default {
+import SortingContent from './SortingContent/index.vue';
+import FilterContent from './FilterContent/index.vue';
+import ProductList from './ProductList/index.vue';
+
+export default Vue.extend({
   name: 'Product',
-  components: { SortingContent, FilterContent, ProductList },
-  data() {
+  components: {
+    SortingContent,
+    FilterContent,
+    ProductList,
+  },
+  data(): { isSortingStart: boolean } {
     return {
-      isOpen: false,
-      onSort: false,
+      isSortingStart: false,
     };
   },
-};
+});
 </script>

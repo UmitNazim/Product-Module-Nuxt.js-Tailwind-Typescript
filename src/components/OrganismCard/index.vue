@@ -7,8 +7,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'OrganismCard',
   props: {
     color: {
@@ -37,7 +39,9 @@ export default {
     },
   },
   computed: {
-    options() {
+    options(): {
+      class: Record<string, boolean>;
+    } {
       return {
         class: {
           'organism-card': true,
@@ -50,5 +54,5 @@ export default {
       };
     },
   },
-};
+});
 </script>

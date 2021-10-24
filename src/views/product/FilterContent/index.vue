@@ -1,7 +1,7 @@
 <template>
   <aside>
     <organism-card :title="$t('category.list')" color="bg-white" shadow>
-      <template v-if="isCategory">
+      <template v-if="isProductByCategoryStart">
         <molecule-content-loader
           v-for="n in 4"
           :key="`category-placeholder-${n}`"
@@ -14,44 +14,49 @@
           v-for="(category, index) in categories"
           :key="`sorting-item-${index}`"
           :label="category"
-          @input="status => getProductBy(status, category)"
           class="mb-2 capitalize"
+          @input="status => getProductByCategory({ status, category })"
         />
       </template>
     </organism-card>
   </aside>
 </template>
 
-<script>
-export default {
-  data() {
+<script lang="ts">
+import Vue from 'vue';
+import { Category } from '@/src/models/product';
+
+export default Vue.extend({
+  name: 'FilterContent',
+  data(): { selectedCategories: Category[]; isProductByCategoryStart: boolean } {
     return {
-      selected: [],
-      isCategory: false,
+      selectedCategories: [],
+      isProductByCategoryStart: true,
     };
   },
   methods: {
-    getProductBy(status = false, category = null) {
-      this.isCategory = true;
-      status
-        ? this.selected.push(category)
-        : (this.selected = this.selected.filter(item => item !== category));
+    getProductByCategory({ status = false, category }: { status: boolean; category: Category }) {
+      this.isProductByCategoryStart = true;
+      if (status) this.selectedCategories.push(category);
+      else
+        this.selectedCategories = this.selectedCategories.filter((item: any) => item !== category);
 
       this.$store.dispatch('product/updateSelectedCategories', {
-        items: [...this.selected],
+        items: [...(this as any).selectedCategories],
       });
-      this.isCategory = false;
+      this.isProductByCategoryStart = false;
     },
   },
   computed: {
-    categories() {
+    categories(): Array<Category> {
       return this.$store.getters['product/getCategories'];
     },
   },
   async created() {
-    this.isCategory = true;
-    await this.$store.dispatch('product/fetchCategories');
-    this.isCategory = false;
+    this.isProductByCategoryStart = true;
+    await this.$store
+      .dispatch('product/fetchCategories')
+      .then(() => (this.isProductByCategoryStart = false));
   },
-};
+});
 </script>

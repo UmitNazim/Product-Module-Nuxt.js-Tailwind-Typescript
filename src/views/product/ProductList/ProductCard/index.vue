@@ -11,26 +11,30 @@
         product.title
       }}</span>
     </div>
-
     <atom-button block :disabled="disabled" @on-click="$emit('on-product-add')">{{
       $t(disabled ? 'general.added' : 'basket.add')
     }}</atom-button>
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue, { PropOptions } from 'vue';
+import { Product } from '@/src/models/product';
+
+export default Vue.extend({
   name: 'MoleculeProduct',
   props: {
-    product: {
+    product: <PropOptions<Product>>{
       type: Object,
       default: () => {},
     },
   },
   computed: {
-    disabled() {
-      return this.$store.getters['basket/getBasket'].some(({ id }) => id === this.product.id);
+    disabled(): boolean {
+      return this.$store.getters['basket/getBasket'].some(
+        ({ id }: { id: number }) => id === this.product.id,
+      );
     },
   },
-};
+});
 </script>
