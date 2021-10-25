@@ -21,8 +21,7 @@ export default {
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href:
-          'https://www.knawat.com/wp-content/themes/knawatv4/dist/images/pwa/apple-icon-57x57_39f2acd9.png',
+        href: 'favicon.ico',
       },
     ],
   },
@@ -45,7 +44,11 @@ export default {
   srcDir: 'src/',
   components: true,
   plugins: ['~/plugins/axios-accessor.ts'],
-  buildModules: ['@nuxtjs/dotenv', '@nuxt/typescript-build', '@nuxtjs/tailwindcss'],
+  buildModules: [
+    ['@nuxtjs/dotenv', { path: './', filename: `.env.${process.env.NODE_ENV}` }],
+    '@nuxt/typescript-build',
+    '@nuxtjs/tailwindcss',
+  ],
   modules: ['@nuxtjs/i18n', '@nuxtjs/axios', 'portal-vue/nuxt'],
   i18n: i18nOptions,
   axios: axiosOptions,
