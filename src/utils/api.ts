@@ -1,6 +1,7 @@
 export interface Common {
   Accept: string;
   'Accept-Language': string;
+  'Access-Control-Allow-Origin': string;
 }
 
 export interface Headers {
@@ -22,6 +23,7 @@ export const axiosOptions: AxiosContentType = {
     common: {
       Accept: 'application/json',
       'Accept-Language': process.env.NUXT_APP_DEFAULT_LOCALE as string,
+      'Access-Control-Allow-Origin': '*',
     },
   },
 };

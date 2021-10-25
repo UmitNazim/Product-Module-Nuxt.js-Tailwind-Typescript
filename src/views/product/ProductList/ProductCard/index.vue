@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2 cursor-pointer">
+  <div class="p-2 cursor-pointer" style="-webkit-tap-highlight-color: transparent;">
     <div @click="$emit('on-product-detail')">
       <div class="w-100 p-3 rounded-xl border-solid border-grey-300 border-2 h-40 place-center">
         <atom-image class="hover-opacity-7 h-28" :src="product.image" />
